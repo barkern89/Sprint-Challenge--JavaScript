@@ -8,8 +8,8 @@
 */
 
 function consume(a, b, cb){
-  return callback(num1, num2);
-}
+  return cb(a,b);
+};
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
@@ -19,6 +19,11 @@ function consume(a, b, cb){
 
 function add(num1, num2){
   return num1 + num2;
+}
+
+//STRETCH FOR FUN BELOW
+function subtract(num1,num2){
+  return num1 - num2;
 }
 
 function multiply(num1,num2){
@@ -33,6 +38,7 @@ function greeting(firstName, lastName){
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
  console.log(consume(2, 2, add)); // 4
+ console.log(consume(98, 30, subtract));
  console.log(consume(10, 16, multiply)); // 160
  console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
