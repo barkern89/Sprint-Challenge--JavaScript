@@ -132,7 +132,7 @@ displayNames will be an array of strings, and each string should follow this pat
 const displayNames = [];
 zooAnimals.forEach(element => {
   displayNames.push(`names: ${element.animal_name}, scientific: ${element.scientific_name}`);
-})
+});
 console.log(displayNames)
 /* Request 2: .map()
 
@@ -142,7 +142,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 const lowCaseAnimalNames = zooAnimals.map(function(zooAnimal){
   return zooAnimal.animal_name.toLowerCase();
-})
+});
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -173,4 +173,27 @@ console.log(populationTotal);
 Stretch: If you haven't already, convert your array method callbacks into arrow functions.
 
 */
+
+//ARRAY METHOD CALLBACK CONVERSION: ES5 TO ARROW FUNCTIONS. 
+//WILL THROW ERROR BECAUSE OF DUPLICATE CONST DECLARATIONS. PLEASE COMMENT OUT ORIGINAL CODE ABOVE TO SEE CONVERSIONS AT WORK
+
+  //REQUEST 1: .forEach()
+  const displayNames = [];
+  zooAnimals.forEach(({animal_name, scientific_name}) => {
+  displayNames.push(`names: ${animal_name}, scientific: ${scientific_name}`);
+});
+
+  //REQUEST 2: .map()
+  const lowCaseAnimalNames = zooAnimals.map(({animal_name}) => animal_name.toLowerCase());
+
+  //REQUEST 3: .filter()
+  const lowPopulationAnimals = zooAnimals.filter(({population}) => {
+    if(population <= 5){
+      return true;
+    }
+  });
+
+  //REQUEST 4: .reduce()
+  const populationTotal = zooAnimals.reduce((population, zooAnimal) => population = population + zooAnimal.population,0);
+  console.log(populationTotal);
 
